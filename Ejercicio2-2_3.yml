@@ -1,0 +1,101 @@
+name: Ejercicio2-2_3
+mgmt:
+  network: clab-mgmt
+
+topology:
+  nodes:
+    pc1:
+      kind: linux
+      image: alpine:latest
+    pc2:
+      kind: linux
+      image: alpine:latest
+    pc3:
+      kind: linux
+      image: alpine:latest
+    r1:
+      kind: linux
+      image: jvt911/docker-sonic-lldp:latest
+      
+    r2:
+      kind: linux
+      image: jvt911/docker-sonic-lldp:latest
+      
+    r3:
+      kind: linux
+      image: jvt911/docker-sonic-lldp:latest
+      
+    r4:
+      kind: linux
+      image: jvt911/docker-sonic-lldp:latest
+      
+    r5:
+      kind: linux
+      image: jvt911/docker-sonic-lldp:latest
+      
+    r6:
+      kind: linux
+      image: jvt911/docker-sonic-lldp:latest
+      
+    r7:
+      kind: linux
+      image: jvt911/docker-sonic-lldp:latest
+      
+    r8:
+      kind: linux
+      image: jvt911/docker-sonic-lldp:latest
+      
+    r9:
+      kind: linux
+      image: jvt911/docker-sonic-lldp:latest
+
+    r10:
+      kind: linux
+      image: jvt911/docker-sonic-lldp:latest
+    
+
+  links:
+    # Subred A
+    - endpoints: ["pc1:eth1", "r1:Ethernet4"]
+    
+    # Subred B
+    - endpoints: ["pc2:eth1", "r8:Ethernet4"]
+
+    #Subred C
+    - endpoints: ["pc3:eth1", "r10:Ethernet4"]
+
+    # Subred D
+    - endpoints: ["r1:Ethernet8", "r2:Ethernet4"]
+    
+    # Subred E
+    - endpoints: ["r1:Ethernet12", "r8:Ethernet8"] 
+    
+    # Subred F
+    - endpoints: ["r2:Ethernet8", "r3:Ethernet4"] 
+    
+    # Subred G
+    - endpoints: ["r3:Ethernet8", "r4:Ethernet4"] 
+    
+    # Subred H
+    - endpoints: ["r3:Ethernet12", "r8:Ethernet12"] 
+
+    # Subred I
+    - endpoints: ["r4:Ethernet8", "r5:Ethernet4"] 
+
+    # Subred J
+    - endpoints: ["r4:Ethernet12", "r6:Ethernet4"] 
+
+    # Subred K
+    - endpoints: ["r5:Ethernet8", "r9:Ethernet4"] 
+
+    # Subred L
+    - endpoints: ["r5:Ethernet12", "r6:Ethernet8"] 
+    
+    # Subred M
+    - endpoints: ["r6:Ethernet12", "r7:Ethernet4"] 
+
+    # Subred N
+    - endpoints: ["r7:Ethernet8", "r8:Ethernet16"] 
+
+    # Subred O
+    - endpoints: ["r9:Ethernet8", "r10:Ethernet8"] 
